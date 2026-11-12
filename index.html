@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Untuk Kamu, Puput 🤍✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #130f26;
+      --bg-mid: #22183b;
+      --bg-bottom: #2f1e4a;
+      --card-bg: rgba(255, 255, 255, 0.088);
+      --card-border: rgba(255, 198, 224, 0.3);
+      --pink: #ff7eb3;
+      --pink-bright: #ff9ec7;
+      --pink-soft: #ffd1e6;
+      --lavender: #c5b4ff;
+      --gold: #ffe28a;
+      --mint: #9ef5cf;
+      --text-main: #fff9fc;
+      --text-muted: #e2d6f3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    body {
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(160deg, var(--bg-deep) 0%, var(--bg-mid) 52%, var(--bg-bottom) 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: 56px;
+      position: relative;
+    }
+
+    /* Ambient Aurora Orbs */
+    .aurora-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(72px);
+      opacity: 0.36;
+      pointer-events: none;
+      z-index: 0;
+      animation: driftOrb 9s ease-in-out infinite alternate;
+    }
+
+    .orb-1 {
+      width: 260px;
+      height: 260px;
+      background: #ff6fa8;
+      top: -60px;
+      left: -60px;
+    }
+
+    .orb-2 {
+      width: 280px;
+      height: 280px;
+      background: #8f6fff;
+      bottom: 8%;
+      right: -80px;
+      animation-delay: -4s;
+    }
+
+    @keyframes driftOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(25px, 30px) scale(1.12); }
+    }
+
+    #bgCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 14px 14px 40px;
+    }
+
+    @media (min-width: 520px) {
+      .container {
+        margin-top: 16px;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 205, 228, 0.24);
+        background: rgba(19, 15, 38, 0.48);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(10px);
+      }
+    }
+
+    /* =========================================
+       ANIMATED GIF-STYLE STICKER KEYFRAMES
+    ========================================= */
+    .sticker-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 8px 18px rgba(255, 126, 179, 0.42));
+    }
+
+    .anim-bounce {
+      animation: gifBounce 1.6s ease-in-out infinite;
+    }
+    @keyframes gifBounce {
+      0%, 100% { transform: translateY(0) scale(1, 1); }
+      45% { transform: translateY(-8px) scale(0.97, 1.04); }
+      75% { transform: translateY(1px) scale(1.04, 0.96); }
+    }
+
+    .anim-wiggle-l {
+      transform-origin: 36px 34px;
+      animation: earL 1.8s ease-in-out infinite;
+    }
+    .anim-wiggle-r {
+      transform-origin: 64px 34px;
+      animation: earR 1.8s ease-in-out infinite;
+    }
+    @keyframes earL {
+      0%, 100% { transform: rotate(0deg); }
+      35% { transform: rotate(-9deg); }
+      70% { transform: rotate(4deg); }
+    }
+    @keyframes earR {
+      0%, 100% { transform: rotate(0deg); }
+      35% { transform: rotate(9deg); }
+      70% { transform: rotate(-4deg); }
+    }
+
+    .anim-pulse {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: heartBeatGif 1.1s ease-in-out infinite;
+    }
+    @keyframes heartBeatGif {
+      0%, 100% { transform: scale(1); }
+      30% { transform: scale(1.28); }
+      60% { transform: scale(0.95); }
+    }
+
+    .anim-float-up {
+      animation: floatUpLoop 2.2s ease-in-out infinite;
+    }
+    .anim-float-up-delay {
+      animation: floatUpLoop 2.2s ease-in-out infinite;
+      animation-delay: -1.1s;
+    }
+    @keyframes floatUpLoop {
+      0% { opacity: 0; transform: translateY(6px) scale(0.7); }
+      40% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-16px) scale(1.15); }
+    }
+
+    .anim-hug-left {
+      animation: hugLeft 1.5s ease-in-out infinite;
+    }
+    .anim-hug-right {
+      animation: hugRight 1.5s ease-in-out infinite;
+    }
+    @keyframes hugLeft {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      50% { transform: translateX(4px) rotate(5deg); }
+    }
+    @keyframes hugRight {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      50% { transform: translateX(-4px) rotate(-5deg); }
+    }
+
+    .anim-spin-slow {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: spinSlow 6s linear infinite;
+    }
+    @keyframes spinSlow {
+      to { transform: rotate(360deg); }
+    }
+
+    .anim-peek {
+      animation: peekHands 2s ease-in-out infinite;
+    }
+    @keyframes peekHands {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    /* Floating Corner Cute Companion */
+    .floating-buddy {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 90;
+      background: rgba(34, 24, 59, 0.85);
+      border: 1.5px solid rgba(255, 198, 224, 0.55);
+      border-radius: 999px;
+      padding: 6px 12px 6px 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+      animation: gifBounce 2.2s ease-in-out infinite;
+    }
+
+    .floating-buddy:active {
+      transform: scale(0.9);
+    }
+
+    .buddy-text {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--pink-soft);
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 8px 6px 14px;
+    }
+
+    .top-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .audio-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .audio-btn.active {
+      background: linear-gradient(135deg, rgba(255, 126, 179, 0.4), rgba(168, 139, 235, 0.4));
+      border-color: var(--pink-bright);
+      box-shadow: 0 0 14px rgba(255, 126, 179, 0.4);
+    }
+
+    .audio-btn:active {
+      transform: scale(0.94);
+    }
+
+    header h1 {
+      font-size: 1.62rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #ffc4df, #ffffff, #d6c4ff, #ffc4df);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shineText 4s linear infinite;
+      margin: 4px 0 8px;
+    }
+
+    @keyframes shineText {
+      to { background-position: 200% center; }
+    }
+
+    .hero-chat-bubble {
+      background: linear-gradient(135deg, rgba(255, 133, 179, 0.17), rgba(168, 139, 235, 0.15));
+      border: 1px solid rgba(255, 198, 224, 0.35);
+      border-radius: 18px;
+      padding: 13px 14px;
+      font-size: 0.86rem;
+      line-height: 1.65;
+      color: var(--text-main);
+      text-align: left;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 2px 14px;
+      scrollbar-width: none;
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      flex: 0 0 auto;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text-muted);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.83rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #ff76ad, #9b7cf5);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.42);
+      box-shadow: 0 4px 16px rgba(255, 118, 173, 0.48);
+      transform: translateY(-1px);
+    }
+
+    /* Sections */
+    .section {
+      display: none;
+      animation: fadeUp 0.35s ease;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Glass Card */
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 18px 16px;
+      backdrop-filter: blur(14px);
+      margin-bottom: 14px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 182, 217, 0.7), rgba(197, 180, 255, 0.7), transparent);
+    }
+
+    .card-sticker-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 1.12rem;
+      font-weight: 900;
+      color: var(--pink-soft);
+      margin-bottom: 4px;
+    }
+
+    .section-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.64;
+      margin-bottom: 14px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(135deg, #ff70a8, #9775f4);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #fff;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 12px 16px;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255, 112, 168, 0.4);
+      transition: transform 0.15s;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.96);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.84rem;
+      padding: 9px 14px;
+      border-radius: 13px;
+      cursor: pointer;
+    }
+
+    .btn-secondary:active {
+      transform: scale(0.95);
+    }
+
+    /* Chat Bubble Box */
+    .chat-box {
+      margin-top: 12px;
+      background: linear-gradient(145deg, rgba(255, 126, 179, 0.16), rgba(155, 124, 245, 0.13));
+      border: 1px solid rgba(255, 198, 224, 0.4);
+      border-radius: 18px;
+      padding: 14px 15px;
+      font-size: 0.89rem;
+      line-height: 1.68;
+      color: #fff;
+      user-select: text;
+    }
+
+    .chat-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 126, 179, 0.34);
+      color: #ffe6f1;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 4px 11px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    /* Envelopes */
+    .envelope-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .counter-pill {
+      background: rgba(255, 226, 138, 0.18);
+      color: var(--gold);
+      border: 1px solid rgba(255, 226, 138, 0.38);
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .envelope-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .envelope-item {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 126, 179, 0.09));
+      border: 1px solid rgba(255, 198, 224, 0.28);
+      border-radius: 17px;
+      padding: 13px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.2s;
+    }
+
+    .envelope-item:active {
+      transform: scale(0.97);
+    }
+
+    .envelope-item.opened {
+      border-color: rgba(158, 245, 207, 0.5);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(158, 245, 207, 0.1));
+    }
+
+    .env-left {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .env-icon {
+      font-size: 1.65rem;
+      flex-shrink: 0;
+    }
+
+    .env-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 3px;
+      line-height: 1.35;
+    }
+
+    .env-badge {
+      font-size: 0.75rem;
+      color: var(--pink-soft);
+      font-weight: 700;
+    }
+
+    .env-status {
+      font-size: 0.73rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(255, 126, 179, 0.25);
+      color: #ffe4f0;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .envelope-item.opened .env-status {
+      background: rgba(158, 245, 207, 0.22);
+      color: var(--mint);
+    }
+
+    /* Sticker Gallery Grid (New Animated GIFs Showcase!) */
+    .sticker-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .sticker-card {
+      background: linear-gradient(145deg, rgba(255, 133, 179, 0.14), rgba(168, 139, 235, 0.14));
+      border: 1.5px solid rgba(255, 198, 224, 0.34);
+      border-radius: 18px;
+      padding: 12px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.2s;
+    }
+
+    .sticker-card:active {
+      transform: scale(0.95);
+    }
+
+    .sticker-card-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #ffe6f2;
+      margin-top: 6px;
+    }
+
+    .sticker-card-sub {
+      font-size: 0.7rem;
+      color: var(--pink-soft);
+      margin-top: 2px;
+    }
+
+    /* Catch Game */
+    .game-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.28);
+      padding: 10px 14px;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    #catchCanvas {
+      width: 100%;
+      height: 310px;
+      background: radial-gradient(circle at top, #2e2252, #141026);
+      border-radius: 18px;
+      border: 1.5px solid var(--card-border);
+      display: block;
+      touch-action: none;
+    }
+
+    .catch-controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .ctrl-btn {
+      flex: 1;
+      padding: 13px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .ctrl-btn:active {
+      background: rgba(255, 126, 179, 0.42);
+    }
+
+    /* Hug Meter */
+    .hug-stage {
+      text-align: center;
+      padding: 6px 0 4px;
+    }
+
+    .hug-sticker-btn {
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .hug-sticker-btn.squish {
+      transform: scale(1.24) rotate(-4deg);
+    }
+
+    .meter-wrap {
+      width: 100%;
+      height: 18px;
+      background: rgba(0, 0, 0, 0.34);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      margin: 14px 0 8px;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff7eb3, #ffd166, #a88beb);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    /* Memory Match */
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 12px 0 4px;
+    }
+
+    .mem-card {
+      aspect-ratio: 1 / 1.1;
+      background: linear-gradient(145deg, #34285e, #21193e);
+      border: 1.5px solid rgba(255, 198, 224, 0.32);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      cursor: pointer;
+      transition: transform 0.25s, background 0.25s;
+    }
+
+    .mem-card.flipped, .mem-card.matched {
+      background: linear-gradient(145deg, #ff7eb3, #9b7cf5);
+      border-color: #fff;
+      transform: rotateY(180deg);
+    }
+
+    .mem-card span {
+      display: none;
+      transform: rotateY(180deg);
+    }
+
+    .mem-card.flipped span, .mem-card.matched span {
+      display: block;
+    }
+
+    .mem-card.flipped::after, .mem-card.matched::after {
+      content: "";
+    }
+
+    .mem-card::after {
+      content: "🤍";
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    /* Photo Reveal */
+    .level-pills {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .lvl-btn {
+      flex: 1;
+      padding: 8px 6px;
+      border-radius: 13px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .lvl-btn.active {
+      background: linear-gradient(135deg, #ff76ad, #9b7cf5);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 12px rgba(255, 118, 173, 0.35);
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 100%;
+      max-width: 310px;
+      aspect-ratio: 3 / 4;
+      margin: 0 auto 12px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 198, 224, 0.5);
+      background: #1a1430;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #1a1430;
+      display: block;
+    }
+
+    .tiles-overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    .tile-piece {
+      background: linear-gradient(135deg, #3c2e6b, #261c46);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.2rem;
+      color: var(--pink-soft);
+      cursor: pointer;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .tile-piece.revealed {
+      opacity: 0;
+      transform: scale(0.7);
+      pointer-events: none;
+    }
+
+    .clue-box {
+      background: rgba(255, 226, 138, 0.13);
+      border: 1px solid rgba(255, 226, 138, 0.35);
+      border-radius: 15px;
+      padding: 12px 14px;
+      font-size: 0.87rem;
+      line-height: 1.65;
+      color: #fff8df;
+      margin-bottom: 10px;
+    }
+
+    /* Cantik Banget Mirror */
+    .mirror-box {
+      text-align: center;
+      padding: 18px 14px;
+      border-radius: 22px;
+      background: radial-gradient(circle, rgba(255, 126, 179, 0.26), rgba(168, 139, 235, 0.14));
+      border: 2px solid rgba(255, 198, 224, 0.55);
+      box-shadow: 0 0 26px rgba(255, 126, 179, 0.32);
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+
+    .mirror-box:active {
+      transform: scale(0.97);
+    }
+
+    .shake-anim {
+      animation: shake 0.42s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      50% { transform: translateX(6px); }
+      75% { transform: translateX(-4px); }
+    }
+
+    /* Floating Tap Particle */
+    .float-text {
+      position: fixed;
+      pointer-events: none;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #ffd8ea;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
+      z-index: 999;
+      animation: riseFade 1.1s ease-out forwards;
+    }
+
+    @keyframes riseFade {
+      0% { opacity: 1; transform: translateY(0) scale(0.9); }
+      100% { opacity: 0; transform: translateY(-58px) scale(1.12); }
+    }
+
+    /* Confetti Piece */
+    .confetti-piece {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1200;
+      font-size: 1.2rem;
+      animation: confettiFall 1.6s ease-out forwards;
+    }
+
+    @keyframes confettiFall {
+      0% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(0.8); }
+      100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(360deg) scale(1.2); }
+    }
+
+    /* Modal Popup */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 8, 22, 0.8);
+      backdrop-filter: blur(7px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 1000;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-card {
+      background: linear-gradient(160deg, #2b214f, #1a1433);
+      border: 1.5px solid rgba(255, 198, 224, 0.52);
+      border-radius: 24px;
+      padding: 20px 18px;
+      max-width: 420px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.55);
+      text-align: left;
+    }
+
+    .modal-sticker-wrap {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .modal-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff76ad, #9b7cf5);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-size: 1.14rem;
+      font-weight: 900;
+      color: #ffe5f1;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .modal-body {
+      font-size: 0.92rem;
+      line-height: 1.74;
+      color: #fff8fc;
+      margin-bottom: 18px;
+      user-select: text;
+    }
+  </style>
+</head>
+<body>
+  <div class="aurora-orb orb-1"></div>
+  <div class="aurora-orb orb-2"></div>
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Floating Interactive Sticker Buddy -->
+  <div class="floating-buddy" onclick="tapFloatingBuddy(event)">
+    <div id="miniBuddySlot"></div>
+    <span class="buddy-text">Tap aku! 🤍</span>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="top-controls">
+        <button id="musicBtn" class="audio-btn" onclick="toggleMusic()">🎵 Musik: Mati</button>
+        <button id="sfxBtn" class="audio-btn active" onclick="toggleSfx()">🔊 Suara: Aktif</button>
+      </div>
+
+      <!-- Hero Animated GIF-Style Sticker -->
+      <div id="heroStickerSlot" style="cursor:pointer;" onclick="tapHeroSticker(event)"></div>
+
+      <h1>Untuk Kamu, Puput 🤍✨</h1>
+      <div class="hero-chat-bubble">
+        haloooo sayangggggggg cantiknyaaa akuuuuuuu! 🥺🤍 aku bikinin ruang kecil yang gemesss dan penuh animasi gerak lucu ini khusus buat nemenin kamu yang lagi hebattt banget jalanin PKL hari iniii. di dalemnya udah aku siapin amplop surat panjang, galeri stiker gerak gemes, sama mini-game lucu biar kamu senyummm terusss! jangan capek-capek yaaa kesayangannn akuuu ✨🌸
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="letters" onclick="switchTab('letters')">💌 Untuk Kamu</button>
+      <button class="tab-btn" data-tab="stickers" onclick="switchTab('stickers')">🐰 Stiker Lucu</button>
+      <button class="tab-btn" data-tab="beautiful" onclick="switchTab('beautiful')">✨ Cantik Banget</button>
+      <button class="tab-btn" data-tab="catch" onclick="switchTab('catch')">🧺 Tangkap Cinta</button>
+      <button class="tab-btn" data-tab="hug" onclick="switchTab('hug')">🤗 Kirim Peluk</button>
+      <button class="tab-btn" data-tab="memory" onclick="switchTab('memory')">🃏 Cocok Kartu</button>
+      <button class="tab-btn" data-tab="photo" onclick="switchTab('photo')">📸 Tebak Foto</button>
+    </nav>
+
+    <!-- TAB 1: UNTUK KAMU (7 AMPLOP + ACAK) -->
+    <section id="tab-letters" class="section active">
+      <div class="glass-card">
+        <div class="card-sticker-header">
+          <div id="tab1StickerSlot"></div>
+          <div>
+            <div class="section-title">🎲 Penyemangat PKL Acak</div>
+            <div style="font-size:0.8rem; color:var(--pink-soft); font-weight:700;">pencet tombolnya kapan aja yaaa sayanggg! ☕💖</div>
+          </div>
+        </div>
+        <p class="section-desc">sayangggggggg cantiknyaaa akuuuuuuu, pencet tombol di bawah ini pas kamu lagi istirahat atau butuh asupan sayanggg dari akuuuu di sela PKL hari iniii 🤍✨</p>
+        <button class="btn-primary" onclick="pickRandomPkl()">✨ Ambil Long Text Penyemangat Acak</button>
+        <div id="randomHighlight" class="chat-box">
+          <div class="chat-tag">💖 Chat Spesial Buat Cantiknya Aku</div>
+          <div>cantiknyaaa akuuuuuuu, tau nggak kenapa hari ini aku bikin halaman yang penuh stiker gerak lucu ini? soalnya aku pengen pas kamu lagi istirahat PKL atau baru pulang capek, ada tempat yang langsung bikin kamu ngerasa disayanggg, diperhatiin, dan ditemenin sama aku terusss! pencet tombol di atas atau buka satu-satu amplop di bawah yaaa sayanggg, semuanya beda-beda isinyaaa! 🥺🤍🌸</div>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <div class="envelope-header">
+          <div class="section-title" style="margin-bottom:0;">💌 7 Amplop Long Text Kamu</div>
+          <div id="envCounter" class="counter-pill">0 / 7 Dibuka</div>
+        </div>
+        <p class="section-desc">setiap amplop ini aku tulis kayak lagi chatan panjang sama kamuuu, beda-beda semua isinyaaa khusus buat nyemangatin puputtt! 🙈💕</p>
+        <div id="envelopeList" class="envelope-list"></div>
+      </div>
+    </section>
+
+    <!-- TAB 2: GALERI STIKER ANIMASI LUCU (GIF-STYLE) -->
+    <section id="tab-stickers" class="section">
+      <div class="glass-card">
+        <div class="section-title">🐰 Galeri Stiker Gerak Buat Puput</div>
+        <p class="section-desc">ini kumpulan animasi-animasi lucu yang aku bikinin khusus buat cantiknyaaa akuuuuuuu! ketuk salah satu stikernya buat liat reaksi gemes dan baca long text khusus di dalemnyaa yaaa sayangggggggg 🥺💖✨</p>
+        <div id="stickerGallery" class="sticker-gallery"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: CANTIK BANGET! -->
+    <section id="tab-beautiful" class="section">
+      <div class="glass-card">
+        <div class="card-sticker-header">
+          <div id="tab3StickerSlot"></div>
+          <div>
+            <div class="section-title">🪞 Kaca Ajaib Kejujuran</div>
+            <div style="font-size:0.8rem; color:var(--pink-soft); font-weight:700;">ketuk kacanya berkali-kali yaaa cantikkk! 👑✨</div>
+          </div>
+        </div>
+        <p class="section-desc">sayangggggggg, kalau abis PKL seharian kamu suka ngerasa kucel atau capek, coba ketuk kaca ajaib di bawah ini biar kamu sadar betapa cantiknyaaa kamuuu di mata akuuu! 🥺💖</p>
+        <div id="magicMirror" class="mirror-box" onclick="tapMirror(event)">
+          <div id="mirrorStickerSlot"></div>
+          <div style="font-weight:900; font-size:1.02rem; margin-top:6px; color:#ffd6e7;">Ketuk Kaca Ajaib Ini, Cantik!</div>
+          <div id="mirrorText" style="font-size:0.88rem; color:#fff; margin-top:8px; line-height:1.68;">
+            kata kaca ajaib: mau lagi capek pulang PKL, lagi sibuk ngerjain tugas, atau baru bangun tidur sekalipun, puputtt tetep manusia paling cantik, paling gemesss, dan paling bikin aku jatuh cinta tiap hari seduniaaa! 💖✨
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <div class="section-title">📡 Detektor Tingkat Kecantikan Puput</div>
+        <p class="section-desc">coba kita scan bareng-bareng seberapa tinggi level kecantikan kesayangannya aku hari ini...</p>
+        <div class="meter-wrap">
+          <div id="beautyBar" class="meter-fill" style="width: 18%;"></div>
+        </div>
+        <div id="beautyLabel" style="text-align:center; font-weight:900; color:var(--gold); font-size:0.9rem; margin-bottom:12px;">
+          Status: Siap Scan Cantiknya Aku ✨
+        </div>
+        <button class="btn-primary" onclick="runBeautyScan()">💖 Mulai Scan Kecantikan Puput!</button>
+        <div id="beautyResult" class="chat-box" style="margin-top:12px;">
+          <div class="chat-tag">🌸 Pengingat Sayang Tanpa Batas</div>
+          <div id="beautyComplimentText">sayangggggggg cantiknyaaa akuuuuuuu, jangan pernah sekalipun ngerasa kurang cantik atau insecure yaaa! di mata aku kamu tuh selalu bersinarrr bangettt, lucuuu bangettt, dan senyum kamu itu obat paling manjur tiap kali aku lagi kangen berat sama kamuuu 🥺💗✨</div>
+        </div>
+        <button class="btn-secondary" style="width:100%; margin-top:10px;" onclick="nextCompliment()">💌 Baca Pujian Long Text Berikutnya</button>
+      </div>
+    </section>
+
+    <!-- TAB 4: TANGKAP CINTA -->
+    <section id="tab-catch" class="section">
+      <div class="glass-card">
+        <div class="section-title">🧺 Tangkap Cinta & Kopi PKL</div>
+        <p class="section-desc">ayooo bantu kelinci gemes ini nangkap ☕ (+20), 🎁 (+25), 💖 (+10), ⭐ (+15), dan hindari ☁️ (-10) yaaa sayangggggggg! tiap kelipatan 50 poin langsung kebuka long text khusus buat kamuuu ✨</p>
+        <div class="game-stats">
+          <span>Skor Kamu: <b id="catchScore" style="color:var(--gold);">0</b></span>
+          <span>Target Hadiah: <b id="catchNextTarget" style="color:var(--pink-soft);">50</b></span>
+        </div>
+        <canvas id="catchCanvas"></canvas>
+        <div class="catch-controls">
+          <button class="ctrl-btn" onpointerdown="moveDir = -1" onpointerup="moveDir = 0" onpointerleave="moveDir = 0">⬅️ Geser Kiri</button>
+          <button class="ctrl-btn" onclick="resetCatchGame()">🔄 Ulang</button>
+          <button class="ctrl-btn" onpointerdown="moveDir = 1" onpointerup="moveDir = 0" onpointerleave="moveDir = 0">Geser Kanan ➡️</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: KIRIM PELUK -->
+    <section id="tab-hug" class="section">
+      <div class="glass-card">
+        <div class="section-title">🤗 Peluk Jauh Buat Anak PKL</div>
+        <p class="section-desc">pencet terus pasangan gemes yang lagi pelukan ini yang banyak yaaa sayangggggggg biar ngirim pelukan paling hangat dari aku sampe meterannya penuh! 🥺🤍</p>
+        <div class="hug-stage">
+          <div id="hugStickerBtn" class="hug-sticker-btn" onclick="sendHug(event)"></div>
+          <div style="font-size:0.82rem; color:var(--pink-soft); font-weight:800; margin-top:6px;">(Tap-tap animasi pelukannya yang kenceng yaaa cantiknyaaa akuuu!)</div>
+          <div class="meter-wrap">
+            <div id="hugFill" class="meter-fill"></div>
+          </div>
+          <div id="hugPercent" style="font-weight:900; color:var(--gold); font-size:0.94rem;">Energi Peluk: 0%</div>
+          <div id="hugMessage" class="chat-box" style="text-align:left;">
+            <div class="chat-tag">🫂 Mode Peluk Virtual</div>
+            <div>sayangggggggg cantiknyaaa akuuuuuuu, kalau hari ini badan kamu pegel atau kepala kamu pusing abis PKL, ayooo siniii pencet animasi pelukannyaaa! anggap aja setiap ketukan itu pelukan paling erat dan paling hangat dari aku yang lagi meluk kamu dari jauh sambil bilang makasih udah bertahan hebat hari iniii 🥺🤍✨</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: COCOK KARTU -->
+    <section id="tab-memory" class="section">
+      <div class="glass-card">
+        <div class="card-sticker-header">
+          <div id="tab6StickerSlot"></div>
+          <div>
+            <div class="section-title">🃏 Cocok Kartu Penyemangat</div>
+            <div style="font-size:0.8rem; color:var(--pink-soft); font-weight:700;">temuin 6 pasangan gambarnya yaaa sayanggg! 🙈💕</div>
+          </div>
+        </div>
+        <p class="section-desc">setiap pasangan yang berhasil kamu cocokin bakal langsung munculin stiker gerak + long text manis yang beda-beda khusus buat kamuuu ✨💖</p>
+        <div class="game-stats">
+          <span>Pasangan Cocok: <b id="memPairs" style="color:var(--gold);">0 / 6</b></span>
+          <button class="btn-secondary" style="padding:5px 11px; font-size:0.78rem;" onclick="initMemoryGame()">🔄 Acak Ulang</button>
+        </div>
+        <div id="memoryGrid" class="memory-grid"></div>
+      </div>
+    </section>
+
+    <!-- TAB 7: TEBAK FOTO -->
+    <section id="tab-photo" class="section">
+      <div class="glass-card">
+        <div class="card-sticker-header">
+          <div id="tab7StickerSlot"></div>
+          <div>
+            <div class="section-title">📸 Tebak Foto Cantiknya Aku</div>
+            <div style="font-size:0.8rem; color:var(--pink-soft); font-weight:700;">buka kotak 1–9 buat liat fotonya yaaa! 🥰✨</div>
+          </div>
+        </div>
+        <p class="section-desc">ketuk kotak angka 1–9 buat baca petunjuk lucunya dan buka foto kamu pelan-pelan yaaa sayangggggggg! kalau semua kebuka ada long text pujian khusus di tiap fotonyaa 🥺💖</p>
+
+        <div class="level-pills">
+          <button class="lvl-btn active" onclick="loadPhotoLevel(0)">Foto 1 🥰<br><span style="font-size:0.68rem;">Topang Dagu</span></button>
+          <button class="lvl-btn" onclick="loadPhotoLevel(1)">Foto 2 🥺<br><span style="font-size:0.68rem;">Manyun Imut</span></button>
+          <button class="lvl-btn" onclick="loadPhotoLevel(2)">Foto 3 🐱<br><span style="font-size:0.68rem;">Kucing Oren</span></button>
+        </div>
+
+        <div class="photo-frame">
+          <img id="secretPhoto" src="foto1.jpg" alt="Foto Puput" />
+          <div id="tilesOverlay" class="tiles-overlay"></div>
+        </div>
+
+        <div id="photoClueBox" class="clue-box">
+          💡 <b>Petunjuk:</b> ketuk salah satu kotak angka 1–9 di atas yaaa cantiknyaaa akuuuuuu, nanti aku kasih tau clue gemesnyaaa! ✨
+        </div>
+
+        <div style="display:flex; gap:8px;">
+          <button class="btn-secondary" style="flex:1;" onclick="revealAllTiles()">✨ Buka Semua Foto</button>
+          <label class="btn-secondary" style="flex:1; text-align:center; cursor:pointer;">
+            🖼️ Pilih Galeri HP
+            <input type="file" accept="image/*" style="display:none;" onchange="loadLocalPhoto(event)" />
+          </label>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MODAL POPUP -->
+  <div id="msgModal" class="modal-backdrop" onclick="closeModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div id="modalStickerWrap" class="modal-sticker-wrap"></div>
+      <div id="modalBadge" class="modal-badge">💌 Spesial Untuk Kamu</div>
+      <div id="modalTitle" class="modal-title">Judul Pesan</div>
+      <div id="modalBody" class="modal-body">Isi pesan panjang...</div>
+      <button class="btn-primary" onclick="forceCloseModal()">🤍 Peluk Kenceng & Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    /* =========================================
+       0. LIBRARY STIKER ANIMASI GERAK (GIF-STYLE)
+    ========================================= */
+    function getStickerHTML(type, size = 84) {
+      const stickers = {
+        bunnyLove: `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" class="sticker-box anim-bounce">
+            <g class="anim-wiggle-l">
+              <ellipse cx="36" cy="24" rx="8" ry="20" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+              <ellipse cx="36" cy="24" rx="4" ry="13" fill="#ff9ec7"/>
+            </g>
+            <g class="anim-wiggle-r">
+              <ellipse cx="64" cy="24" rx="8" ry="20" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+              <ellipse cx="64" cy="24" rx="4" ry="13" fill="#ff9ec7"/>
+            </g>
+            <circle cx="50" cy="56" r="26" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+            <circle cx="41" cy="52" r="3.3" fill="#3b2354"/>
+            <circle cx="42" cy="51" r="1.2" fill="#fff"/>
+            <circle cx="59" cy="52" r="3.3" fill="#3b2354"/>
+            <circle cx="60" cy="51" r="1.2" fill="#fff"/>
+            <ellipse cx="33" cy="59" rx="5" ry="3" fill="#ff9ec7" opacity="0.8"/>
+            <ellipse cx="67" cy="59" rx="5" ry="3" fill="#ff9ec7" opacity="0.8"/>
+            <path d="M45 62 Q50 67 55 62" fill="none" stroke="#3b2354" stroke-width="2" stroke-linecap="round"/>
+            <path class="anim-pulse" d="M50 86 C50 86 37 77 37 70 C37 66 41 64 45 66 C48 68 50 71 50 71 C50 71 52 68 55 66 C59 64 63 66 63 70 C63 77 50 86 50 86 Z" fill="#ff5c9d" stroke="#3b2354" stroke-width="1.6"/>
+            <text x="16" y="34" font-size="13" class="anim-float-up">💖</text>
+            <text x="74" y="30" font-size="12" class="anim-float-up-delay">✨</text>
+          </svg>`,
+
+        mochiHug: `
+          <svg width="${size}" height="${size}" viewBox="0 0 110 100" class="sticker-box">
+            <!-- Floating Hearts -->
+            <text x="46" y="22" font-size="16" class="anim-float-up">💖</text>
+            <text x="24" y="28" font-size="12" class="anim-float-up-delay">🤍</text>
+            <text x="72" y="28" font-size="12" class="anim-float-up">✨</text>
+            <!-- Left White Mochi Cat -->
+            <g class="anim-hug-left">
+              <path d="M22 44 L27 30 L37 40 Z" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M42 40 L51 30 L54 44 Z" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2" stroke-linejoin="round"/>
+              <ellipse cx="38" cy="60" rx="22" ry="21" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+              <path d="M28 56 Q31 53 34 56" fill="none" stroke="#3b2354" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M41 56 Q44 53 47 56" fill="none" stroke="#3b2354" stroke-width="2.2" stroke-linecap="round"/>
+              <ellipse cx="26" cy="62" rx="4" ry="2.5" fill="#ff9ec7"/>
+              <path d="M35 63 Q38 66 41 63" fill="none" stroke="#3b2354" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- Hugging Arm -->
+              <ellipse cx="53" cy="64" rx="9" ry="5.5" fill="#fff9fc" stroke="#3b2354" stroke-width="2"/>
+            </g>
+            <!-- Right Peach Mochi Cat -->
+            <g class="anim-hug-right">
+              <path d="M56 44 L60 30 L69 40 Z" fill="#ffd9e8" stroke="#3b2354" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M74 40 L84 30 L88 44 Z" fill="#ffd9e8" stroke="#3b2354" stroke-width="2.2" stroke-linejoin="round"/>
+              <ellipse cx="72" cy="60" rx="22" ry="21" fill="#ffd9e8" stroke="#3b2354" stroke-width="2.2"/>
+              <path d="M63 56 Q66 53 69 56" fill="none" stroke="#3b2354" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M76 56 Q79 53 82 56" fill="none" stroke="#3b2354" stroke-width="2.2" stroke-linecap="round"/>
+              <ellipse cx="84" cy="62" rx="4" ry="2.5" fill="#ff7eb3"/>
+              <path d="M69 63 Q72 66 75 63" fill="none" stroke="#3b2354" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- Hugging Arm -->
+              <ellipse cx="57" cy="66" rx="9" ry="5.5" fill="#ffd9e8" stroke="#3b2354" stroke-width="2"/>
+            </g>
+          </svg>`,
+
+        coffeeCheer: `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" class="sticker-box anim-bounce">
+            <g class="anim-wiggle-l">
+              <ellipse cx="36" cy="22" rx="7" ry="17" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+            </g>
+            <g class="anim-wiggle-r">
+              <ellipse cx="64" cy="22" rx="7" ry="17" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+            </g>
+            <circle cx="50" cy="48" r="22" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+            <path d="M39 45 Q42 41 45 45" fill="none" stroke="#3b2354" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M55 45 Q58 41 61 45" fill="none" stroke="#3b2354" stroke-width="2.2" stroke-linecap="round"/>
+            <ellipse cx="36" cy="51" rx="4" ry="2.5" fill="#ff9ec7"/>
+            <ellipse cx="64" cy="51" rx="4" ry="2.5" fill="#ff9ec7"/>
+            <path d="M46 53 Q50 57 54 53" fill="none" stroke="#3b2354" stroke-width="2" stroke-linecap="round"/>
+            <!-- Warm Coffee Cup -->
+            <rect x="35" y="64" width="30" height="24" rx="6" fill="#ffe28a" stroke="#3b2354" stroke-width="2.2"/>
+            <path d="M65 69 Q73 69 73 76 Q73 83 65 83" fill="none" stroke="#3b2354" stroke-width="2.2"/>
+            <text x="44" y="81" font-size="13">💖</text>
+            <!-- Steam Hearts -->
+            <text x="42" y="61" font-size="11" class="anim-float-up">🤍</text>
+            <text x="53" y="59" font-size="10" class="anim-float-up-delay">✨</text>
+          </svg>`,
+
+        shyBlush: `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" class="sticker-box anim-bounce">
+            <path d="M25 42 L31 24 L43 36 Z" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M57 36 L69 24 L75 42 Z" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2" stroke-linejoin="round"/>
+            <circle cx="50" cy="56" r="25" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+            <!-- Big Blush -->
+            <ellipse cx="33" cy="57" rx="7" ry="4" fill="#ff85b3" opacity="0.85"/>
+            <ellipse cx="67" cy="57" rx="7" ry="4" fill="#ff85b3" opacity="0.85"/>
+            <!-- Shy Eyes -->
+            <path d="M37 50 L44 53 L37 56" fill="none" stroke="#3b2354" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M63 50 L56 53 L63 56" fill="none" stroke="#3b2354" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Paws Covering Cheeks -->
+            <g class="anim-peek">
+              <ellipse cx="37" cy="69" rx="9" ry="11" fill="#ffd9e8" stroke="#3b2354" stroke-width="2.2"/>
+              <ellipse cx="63" cy="69" rx="9" ry="11" fill="#ffd9e8" stroke="#3b2354" stroke-width="2.2"/>
+            </g>
+            <text x="15" y="32" font-size="13" class="anim-float-up">🙈</text>
+            <text x="74" y="32" font-size="13" class="anim-float-up-delay">💕</text>
+          </svg>`,
+
+        crownQueen: `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" class="sticker-box anim-bounce">
+            <!-- Spinning Aura Stars -->
+            <g class="anim-spin-slow">
+              <text x="14" y="28" font-size="12">✨</text>
+              <text x="76" y="28" font-size="12">🌟</text>
+              <text x="14" y="80" font-size="12">🌸</text>
+              <text x="76" y="80" font-size="12">💖</text>
+            </g>
+            <circle cx="50" cy="58" r="24" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+            <!-- Golden Crown -->
+            <path d="M33 36 L37 20 L50 30 L63 20 L67 36 Z" fill="#ffe28a" stroke="#3b2354" stroke-width="2.2" stroke-linejoin="round"/>
+            <circle cx="50" cy="27" r="2.5" fill="#ff5c9d"/>
+            <!-- Happy Sparkling Eyes -->
+            <circle cx="41" cy="55" r="3.5" fill="#3b2354"/>
+            <circle cx="42" cy="54" r="1.4" fill="#fff"/>
+            <circle cx="59" cy="55" r="3.5" fill="#3b2354"/>
+            <circle cx="60" cy="54" r="1.4" fill="#fff"/>
+            <ellipse cx="34" cy="62" rx="5" ry="3" fill="#ff9ec7"/>
+            <ellipse cx="66" cy="62" rx="5" ry="3" fill="#ff9ec7"/>
+            <path d="M45 64 Q50 70 55 64" fill="#ff7eb3" stroke="#3b2354" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>`,
+
+        giftJump: `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" class="sticker-box">
+            <!-- Popping Bunny -->
+            <g class="anim-bounce">
+              <ellipse cx="42" cy="24" rx="5" ry="13" fill="#fff9fc" stroke="#3b2354" stroke-width="2"/>
+              <ellipse cx="58" cy="24" rx="5" ry="13" fill="#fff9fc" stroke="#3b2354" stroke-width="2"/>
+              <circle cx="50" cy="40" r="16" fill="#fff9fc" stroke="#3b2354" stroke-width="2"/>
+              <circle cx="44" cy="39" r="2.3" fill="#3b2354"/>
+              <circle cx="56" cy="39" r="2.3" fill="#3b2354"/>
+              <path d="M47 44 Q50 47 53 44" fill="none" stroke="#3b2354" stroke-width="1.8" stroke-linecap="round"/>
+            </g>
+            <!-- Gift Box -->
+            <rect x="24" y="52" width="52" height="36" rx="8" fill="#ff7eb3" stroke="#3b2354" stroke-width="2.2"/>
+            <rect x="45" y="52" width="10" height="36" fill="#ffe28a" stroke="#3b2354" stroke-width="1.5"/>
+            <rect x="20" y="46" width="60" height="10" rx="5" fill="#ff9ec7" stroke="#3b2354" stroke-width="2"/>
+            <text x="14" y="34" font-size="13" class="anim-float-up">🎉</text>
+            <text x="74" y="34" font-size="13" class="anim-float-up-delay">💖</text>
+          </svg>`,
+
+        sleepyMoon: `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" class="sticker-box anim-bounce">
+            <!-- Crescent Moon -->
+            <path d="M62 20 A32 32 0 1 0 78 72 A25 25 0 1 1 62 20 Z" fill="#ffe28a" stroke="#3b2354" stroke-width="2.2"/>
+            <!-- Sleeping Little Bear -->
+            <circle cx="44" cy="56" r="16" fill="#fff9fc" stroke="#3b2354" stroke-width="2"/>
+            <circle cx="33" cy="44" r="5" fill="#fff9fc" stroke="#3b2354" stroke-width="2"/>
+            <circle cx="55" cy="44" r="5" fill="#fff9fc" stroke="#3b2354" stroke-width="2"/>
+            <path d="M37 56 Q40 59 43 56" fill="none" stroke="#3b2354" stroke-width="2" stroke-linecap="round"/>
+            <path d="M46 56 Q49 59 52 56" fill="none" stroke="#3b2354" stroke-width="2" stroke-linecap="round"/>
+            <ellipse cx="36" cy="60" rx="3.5" ry="2" fill="#ff9ec7"/>
+            <text x="66" y="34" font-size="12" fill="#ffd1e6" font-weight="bold" class="anim-float-up">Zzz</text>
+            <text x="74" y="46" font-size="10" fill="#ffe28a" font-weight="bold" class="anim-float-up-delay">zZ</text>
+          </svg>`,
+
+        cameraSparkle: `
+          <svg width="${size}" height="${size}" viewBox="0 0 100 100" class="sticker-box anim-bounce">
+            <path d="M28 38 L34 22 L44 33 Z" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+            <path d="M56 33 L66 22 L72 38 Z" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+            <circle cx="50" cy="48" r="20" fill="#fff9fc" stroke="#3b2354" stroke-width="2.2"/>
+            <circle cx="43" cy="45" r="2.6" fill="#3b2354"/>
+            <path d="M54 45 Q57 42 60 45" fill="none" stroke="#3b2354" stroke-width="2.2" stroke-linecap="round"/>
+            <!-- Cute Pink Camera -->
+            <rect x="30" y="56" width="40" height="26" rx="7" fill="#ff85b3" stroke="#3b2354" stroke-width="2.2"/>
+            <circle cx="50" cy="69" r="8" fill="#c5b4ff" stroke="#3b2354" stroke-width="2"/>
+            <circle cx="50" cy="69" r="4" fill="#3b2354"/>
+            <circle cx="62" cy="61" r="2.5" fill="#ffe28a" class="anim-pulse"/>
+            <text x="16" y="36" font-size="13" class="anim-float-up">📸</text>
+            <text x="74" y="36" font-size="13" class="anim-float-up-delay">💖</text>
+          </svg>`
+      };
+      return stickers[type] || stickers.bunnyLove;
+    }
+
+    // Pasang Stiker Gerak ke Masing-Masing Slot Halaman
+    document.getElementById('miniBuddySlot').innerHTML = getStickerHTML('bunnyLove', 34);
+    document.getElementById('heroStickerSlot').innerHTML = getStickerHTML('mochiHug', 108);
+    document.getElementById('tab1StickerSlot').innerHTML = getStickerHTML('coffeeCheer', 66);
+    document.getElementById('tab3StickerSlot').innerHTML = getStickerHTML('crownQueen', 66);
+    document.getElementById('mirrorStickerSlot').innerHTML = getStickerHTML('shyBlush', 86);
+    document.getElementById('hugStickerBtn').innerHTML = getStickerHTML('mochiHug', 124);
+    document.getElementById('tab6StickerSlot').innerHTML = getStickerHTML('giftJump', 66);
+    document.getElementById('tab7StickerSlot').innerHTML = getStickerHTML('cameraSparkle', 66);
+
+    /* =========================================
+       1. WEB AUDIO API (MUSIK KOTAK KACA & SFX)
+    ========================================= */
+    let audioCtx = null;
+    let musicPlaying = false;
+    let sfxEnabled = true;
+    let musicInterval = null;
+    let noteIndex = 0;
+
+    const melodyNotes = [
+      523.25, 659.25, 783.99, 659.25,
+      587.33, 698.46, 880.00, 698.46,
+      523.25, 659.25, 783.99, 987.77,
+      1046.50, 987.77, 783.99, 659.25
+    ];
+
+    function ensureAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playTone(freq, duration = 0.45, volume = 0.06, type = 'sine') {
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, now);
+
+      gain.gain.setValueAtTime(0.0001, now);
+      gain.gain.exponentialRampToValueAtTime(volume, now + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + duration + 0.02);
+    }
+
+    function playSfx(kind) {
+      if (!sfxEnabled) return;
+      ensureAudio();
+      if (kind === 'tap') {
+        playTone(784, 0.14, 0.05, 'sine');
+      } else if (kind === 'pop') {
+        playTone(659, 0.12, 0.06, 'triangle');
+        setTimeout(() => playTone(880, 0.18, 0.06, 'sine'), 65);
+      } else if (kind === 'win') {
+        [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+          setTimeout(() => playTone(f, 0.28, 0.07, 'sine'), i * 90);
+        });
+      } else if (kind === 'bad') {
+        playTone(260, 0.22, 0.05, 'triangle');
+      }
+    }
+
+    function toggleMusic() {
+      ensureAudio();
+      musicPlaying = !musicPlaying;
+      const btn = document.getElementById('musicBtn');
+      if (musicPlaying) {
+        btn.textContent = '🎵 Musik: Nyala';
+        btn.classList.add('active');
+        musicInterval = setInterval(() => {
+          if (!musicPlaying) return;
+          const freq = melodyNotes[noteIndex % melodyNotes.length];
+          playTone(freq, 0.65, 0.04, 'sine');
+          noteIndex++;
+        }, 560);
+      } else {
+        btn.textContent = '🎵 Musik: Mati';
+        btn.classList.remove('active');
+        clearInterval(musicInterval);
+      }
+    }
+
+    function toggleSfx() {
+      sfxEnabled = !sfxEnabled;
+      const btn = document.getElementById('sfxBtn');
+      if (sfxEnabled) {
+        btn.textContent = '🔊 Suara: Aktif';
+        btn.classList.add('active');
+        playSfx('tap');
+      } else {
+        btn.textContent = '🔇 Suara: Mati';
+        btn.classList.remove('active');
+      }
+    }
+
+    /* =========================================
+       2. PARTIKEL LATAR, CONFETTI & TAP SPARKLE
+    ========================================= */
+    const bgCanvas = document.getElementById('bgCanvas');
+    const bgCtx = bgCanvas.getContext('2d');
+    let bgParticles = [];
+
+    function initBgCanvas() {
+      bgCanvas.width = window.innerWidth;
+      bgCanvas.height = window.innerHeight;
+      bgParticles = Array.from({ length: 40 }, () => ({
+        x: Math.random() * bgCanvas.width,
+        y: Math.random() * bgCanvas.height,
+        r: Math.random() * 2.3 + 0.8,
+        vy: Math.random() * 0.35 + 0.12,
+        alpha: Math.random() * 0.65 + 0.2,
+        emoji: Math.random() > 0.68 ? (Math.random() > 0.5 ? '🌸' : '💖') : null
+      }));
+    }
+
+    function animateBg() {
+      bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+      bgParticles.forEach(p => {
+        p.y -= p.vy;
+        if (p.y < -18) {
+          p.y = bgCanvas.height + 10;
+          p.x = Math.random() * bgCanvas.width;
+        }
+        bgCtx.globalAlpha = p.alpha;
+        if (p.emoji) {
+          bgCtx.font = '13px sans-serif';
+          bgCtx.fillText(p.emoji, p.x, p.y);
+        } else {
+          bgCtx.fillStyle = '#ffe0ef';
+          bgCtx.beginPath();
+          bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          bgCtx.fill();
+        }
+      });
+      requestAnimationFrame(animateBg);
+    }
+
+    window.addEventListener('resize', initBgCanvas);
+    initBgCanvas();
+    animateBg();
+
+    function spawnFloatText(x, y, text) {
+      const el = document.createElement('div');
+      el.className = 'float-text';
+      el.style.left = Math.min(window.innerWidth - 140, Math.max(12, x - 35)) + 'px';
+      el.style.top = Math.max(20, y - 15) + 'px';
+      el.textContent = text;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1100);
+    }
+
+    function burstConfetti(cx, cy) {
+      const icons = ['💖', '🤍', '✨', '🌸', '🐰', '🥺', '🎀'];
+      for (let i = 0; i < 18; i++) {
+        const el = document.createElement('div');
+        el.className = 'confetti-piece';
+        el.textContent = icons[Math.floor(Math.random() * icons.length)];
+        el.style.left = cx + 'px';
+        el.style.top = cy + 'px';
+        const angle = (Math.PI * 2 * i) / 18 + (Math.random() * 0.4);
+        const dist = 70 + Math.random() * 110;
+        el.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+        el.style.setProperty('--dy', Math.sin(angle) * dist - 30 + 'px');
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 1600);
+      }
+    }
+
+    document.addEventListener('pointerdown', (e) => {
+      const sparkles = ['🤍', '✨', '💖', '🌸', '🥺'];
+      const pick = sparkles[Math.floor(Math.random() * sparkles.length)];
+      spawnFloatText(e.clientX, e.clientY, pick);
+    });
+
+    function tapHeroSticker(e) {
+      playSfx('win');
+      burstConfetti(e.clientX, e.clientY);
+      spawnFloatText(e.clientX, e.clientY - 12, 'PELUK PUPUTTT! 🤍');
+    }
+
+    const buddySweetNotes = [
+      "sayangggggggg cantiknyaaa akuuuuuuu, semangat terus PKL-nya yaaa! jangan lupa senyummm hari iniii 🥺🤍✨",
+      "haiii kesayangannn akuuu! cuma mau bilang kalau aku sayanggg banget sama kamuuu tanpa hentiii 💖🌸",
+      "cantiknyaaa akuuuuuuu, jangan lupa minum air putih dulu yaaa biar nggak kecapean di tempat PKL! 🧋🤍",
+      "peluk jauh paling kencenggg buat puputtt yang paling hebat dan paling sabar hari iniii! 🤗✨"
+    ];
+    let buddyNoteIdx = 0;
+
+    function tapFloatingBuddy(e) {
+      e.stopPropagation();
+      playSfx('win');
+      burstConfetti(e.clientX, e.clientY);
+      const msg = buddySweetNotes[buddyNoteIdx % buddySweetNotes.length];
+      buddyNoteIdx++;
+      openModal("🐰 Sapaan Kecil Buat Kamu", "Pesan Kilat dari Kesayangan Kamu!", msg, "bunnyLove");
+    }
+
+    /* =========================================
+       3. NAVIGASI TAB & MODAL
+    ========================================= */
+    function switchTab(tabName) {
+      playSfx('tap');
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabName);
+      });
+      document.querySelectorAll('.section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById('tab-' + tabName).classList.add('active');
+
+      if (tabName === 'catch') {
+        setTimeout(() => {
+          resizeCatchCanvas();
+        }, 40);
+      }
+    }
+
+    function openModal(badge, title, body, stickerKey = 'bunnyLove') {
+      playSfx('pop');
+      document.getElementById('modalStickerWrap').innerHTML = getStickerHTML(stickerKey, 96);
+      document.getElementById('modalBadge').textContent = badge;
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalBody').textContent = body;
+      document.getElementById('msgModal').classList.add('open');
+    }
+
+    function closeModal(e) {
+      if (e.target.id === 'msgModal') {
+        forceCloseModal();
+      }
+    }
+
+    function forceCloseModal() {
+      playSfx('tap');
+      document.getElementById('msgModal').classList.remove('open');
+    }
+
+    /* =========================================
+       4. TAB 1: RANDOM PKL & 7 AMPLOP LONG TEXT
+    ========================================= */
+    const randomPklMessages = [
+      {
+        tag: "☀️ Gombalan Pagi Anak PKL",
+        text: "sayangggggggg cantiknyaaa akuuuuuuu, tau nggak kenapa matahari pagi ini cerahhh bangettt? soalnya dia kalah saing sama senyum manis kamuuu sebelum berangkat PKL! semangattt terusss yaaa kesayangannn akuuu, jangan lupa sarapan biar tenaga kamu penuhh seharian penuhhh! 🥺🤍✨"
+      },
+      {
+        tag: "💼 Si Paling Rajin & Hebat",
+        text: "cantiknyaaa akuuuuuuu yang lagi sibuk PKL, kamu tau nggak sih kalau tiap hari aku tuh banggaaa bangettt punya kamu? liat kamu serius belajar dan berusaha di tempat PKL bikin aku makin sayanggg dan makin kagummm sama kamuuu. pelan-pelan aja kerjanya yaaa sayanggg, jangan terlalu dipaksain kalau capekkk! 💖🌸"
+      },
+      {
+        tag: "🧋 Gombalan Jam Istirahat",
+        text: "haloooo sayangggggggg, udah jam istirahat belum nihhh? kalau udah, jangan lupa minum air putih atau beli minuman manis kesukaan kamuuu yaaa! soalnya manisnya minuman aja masih kalah jauh sama manisnyaaa kamuuu pas lagi ketawa di depan akuuuu hehehe 🙈🤍✨"
+      },
+      {
+        tag: "🔋 Pengisi Daya Hati",
+        text: "sayangggggggg, kalau baterai HP kamu lowbat tinggal dicas ke colokan, nah kalau baterai semangat PKL kamu lagi lowbat, sini casnya ke pelukan aku ajaaa yaaa! aku selalu siap dengerin semua cerita kamu dari A sampai Z tanpa bosen sedikit punnn 🥺💞"
+      },
+      {
+        tag: "🌙 Rindu dari Kejauhan",
+        text: "cantiknyaaa akuuuuuuu, jarak boleh bikin kita nggak bisa ketemu tiap detik pas kamu lagi PKL, tapi doa dan pikiran aku tuh nempel terusss di samping kamuuu! sabar sebentar yaaa sayanggg, nanti pas kita ketemu semua kangennya bakal langsung aku bayar lunas pake peluk paling kencenggg! 🤍🤗"
+      },
+      {
+        tag: "👑 Ratu di Hati Aku",
+        text: "sayangggggggg, mau kamu lagi pake seragam PKL, lagi rapi, atau lagi kecapean pulang sore, di mata aku kamu tetep satu-satunya perempuan paling cantikkk, paling gemesss, dan paling berhargaaa di duniaaa iniii! i love you endlesslyyyy cantiknyaaa akuuuuuuu! 💗✨"
+      }
+    ];
+
+    let lastRandomIdx = -1;
+    function pickRandomPkl() {
+      playSfx('pop');
+      let idx;
+      do {
+        idx = Math.floor(Math.random() * randomPklMessages.length);
+      } while (idx === lastRandomIdx);
+      lastRandomIdx = idx;
+
+      const item = randomPklMessages[idx];
+      const box = document.getElementById('randomHighlight');
+      box.innerHTML = `<div class="chat-tag">${item.tag}</div><div>${item.text}</div>`;
+    }
+
+    const envelopesData = [
+      {
+        icon: "🌅",
+        sticker: "coffeeCheer",
+        title: "Amplop 1: Pas Baru Bangun & Siap-Siap PKL",
+        badge: "Semangat Pagi Cantik",
+        body: "selamat pagiiii sayangggggggg cantiknyaaa akuuuuuuu! bangun tidur langsung inget kalau hari ini kamu punya banyak hal baik yang nungguin kamu di tempat PKL. tarik napas dalam-dalam, senyum dulu di depan kaca, dan inget kalau ada aku di sini yang selalu doain langkah kamu supaya dimudahin semua urusannyaaa. semangattt yaaa kesayangannn akuuu! 🤍☀️"
+      },
+      {
+        icon: "💼",
+        sticker: "mochiHug",
+        title: "Amplop 2: Pas Lagi Sibuk & Pusing Tugas PKL",
+        badge: "Isi Ulang Fokus",
+        body: "sayangggggggg, kalau hari ini kerjaan atau tugas di tempat PKL lagi numpuk dan bikin kepala kamu penat, berhenti sebentar yaaa cantiknyaaa akuuuuuuu. kamu nggak harus sempurna di setiap detik kok, yang penting kamu udah ngasih usaha terbaik versi kamu hari ini. aku banggaaa bangettt sama perjuangan kamuuu, jangan terlalu keras sama diri sendiri yaaa! 🥺💖"
+      },
+      {
+        icon: "🍫",
+        sticker: "shyBlush",
+        title: "Amplop 3: Gombalan Manis Biar Mood Naik",
+        badge: "Gombal Mode On",
+        body: "cantiknyaaa akuuuuuuu, kamu sadar nggak sih kalau kamu tuh kayak cokelat hangat pas lagi hujan? selalu sukses bikin hati aku tenang, nyaman, dan bahagiaaa tiap kali mikirin kamu! PKL-nya yang semangat yaaa sayanggg, nanti kalau udah selesai kita jajan yang enak-enak barengg biar senyum kamu makin lebarrr! 🙈🍫✨"
+      },
+      {
+        icon: "🥺",
+        sticker: "bunnyLove",
+        title: "Amplop 4: Pas Tiba-Tiba Kangen Berat Sama Aku",
+        badge: "Obat Kangen LDR",
+        body: "sayangggggggg, kalau di tengah-tengah aktivitas PKL tiba-tiba kamu ngerasa kangen banget sama aku, pegang dada kamu pelan-pelan yaaa... karena di detik yang sama aku juga lagi mikirin dan ngerinduin cantiknyaaa akuuuuuuu di sini! jarak ini cuma sementara kok sayanggg, hati aku tuh selalu pulang ke kamuuu 🤍🌙"
+      },
+      {
+        icon: "🌈",
+        sticker: "giftJump",
+        title: "Amplop 5: Pas Hari Kamu Lagi Seneng Banget",
+        badge: "Ikut Bahagia",
+        body: "yeayyyy alhamdulillahhh sayangggggggg! kalau hari ini PKL kamu lancar dan banyak hal seru yang bikin kamu ketawa, aku ikut senenggg bangettt dengernyaaa! senyum dan tawa kamu itu kebahagiaan terbesar buat aku, cantiknyaaa akuuuuuuu. simpen energi positifnya dan ceritain semuanya ke aku nanti yaaa! ✨🎉"
+      },
+      {
+        icon: "🛡️",
+        sticker: "crownQueen",
+        title: "Amplop 6: Pas Lagi Overthinking atau Capek Hati",
+        badge: "Penguat Hati",
+        body: "sayangggggggg cantiknyaaa akuuuuuuu, buang jauh-jauh semua pikiran yang bikin hati kamu gelisah yaaa. aku milih kamu bukan cuma pas lagi seneng-senengnya aja, tapi aku milih kamu di setiap hari, di setiap capeknya kamu, dan di setiap versi diri kamu. kamu udah lebih dari cukup buat aku, sayanggg! 🤍🫂"
+      },
+      {
+        icon: "🛌",
+        sticker: "sleepyMoon",
+        title: "Amplop 7: Pas Udah Pulang PKL & Mau Istirahat",
+        badge: "Selamat Istirahat",
+        body: "terima kasihhh banyak yaaa sayangggggggg udah bertahan dan berjuang hebat banget hari iniii! sekarang lepasin dulu semua capek PKL-nya, bersihin badan, makan yang enak, terus istirahat yang nyenyak yaaa cantiknyaaa akuuuuuuu. besok kita mulai hari baru lagi bareng-bareng, i love you so muchhh! 🌙💤🤍"
+      }
+    ];
+
+    const openedEnvelopes = new Set();
+
+    function renderEnvelopes() {
+      const list = document.getElementById('envelopeList');
+      list.innerHTML = '';
+      envelopesData.forEach((env, index) => {
+        const isOpened = openedEnvelopes.has(index);
+        const div = document.createElement('div');
+        div.className = 'envelope-item' + (isOpened ? ' opened' : '');
+        div.innerHTML = `
+          <div class="env-left">
+            <div class="env-icon">${isOpened ? '💖' : env.icon}</div>
+            <div>
+              <div class="env-title">${env.title}</div>
+              <div class="env-badge">${env.badge}</div>
+            </div>
+          </div>
+          <div class="env-status">${isOpened ? 'Dibaca ✓' : 'Buka 💌'}</div>
+        `;
+        div.onclick = () => {
+          openedEnvelopes.add(index);
+          document.getElementById('envCounter').textContent = `${openedEnvelopes.size} / 7 Dibuka`;
+          renderEnvelopes();
+          openModal(env.badge, env.title, env.body, env.sticker);
+        };
+        list.appendChild(div);
+      });
+    }
+    renderEnvelopes();
+
+    /* =========================================
+       5. TAB 2: GALERI STIKER ANIMASI LUCU (GIF-STYLE)
+    ========================================= */
+    const animatedStickerShowcase = [
+      {
+        key: "mochiHug",
+        label: "Pelukan Mochi Gemes 🤗",
+        sub: "Ketuk buat peluk kenceng!",
+        title: "Stiker Pelukan Paling Erat Buat Puput!",
+        msg: "sayangggggggg cantiknyaaa akuuuuuuu, liat deh dua kucing mochi di stiker ini lagi pelukan kenceng bangettt! persis kayak aku yang selalu pengen meluk kamu erat-erat tiap kali kamu pulang PKL kecapean. semangat terus yaaa kesayangannn akuuu, aku sayanggg kamu bangettt! 🥺🤍✨"
+      },
+      {
+        key: "coffeeCheer",
+        label: "Kopi Semangat PKL ☕",
+        sub: "Asap cintanya naik terus!",
+        title: "Asupan Energi & Kopi Hangat Buat Kamu!",
+        msg: "haloooo cantiknyaaa akuuuuuuu yang lagi berjuang di tempat PKL! stiker kelinci bawa kopi hangat ini aku kirim khusus biar mata kamu melek, hati kamu adem, dan semangat kamu full terus seharian penuhhh! jangan lupa istirahat dan makan tepat waktu yaaa sayangggggggg! ☕💖"
+      },
+      {
+        key: "shyBlush",
+        label: "Kucing Malu-Malu 🙈",
+        sub: "Pipinya merah merona!",
+        title: "Ekspresi Aku Tiap Liat Foto Kamu!",
+        msg: "jujur aja deh sayangggggggg, tiap kali kamu ngirim foto selfie atau senyum manis di chat, ekspresi aku tuh persis kayak stiker kucing malu-malu ini—langsung salting, pipi merah, dan senyum-senyum sendiri seharian! habisnya cantiknyaaa akuuuuuuu kelewatan manisnya sihhh! 🙈💗✨"
+      },
+      {
+        key: "crownQueen",
+        label: "Ratu Cantiknya Aku 👑",
+        sub: "Mahkota bintang berkilau!",
+        title: "Mahkota Ratu Paling Berharga di Hati Aku!",
+        msg: "stiker mahkota berkilau ini khusus buat puputtt satu-satunya! mau di mana pun kamu berada dan sesibuk apa pun kegiatan PKL kamu, kamu tetep ratu nomor satu yang paling aku jaga, paling aku banggain, dan paling aku sayanggg selamanyaaa sayangggggggg! 👑🤍🌸"
+      },
+      {
+        key: "giftJump",
+        label: "Kelinci Kejutan 🎉",
+        sub: "Melompat bawa kebahagiaan!",
+        title: "Kejutan Kecil Biar Kamu Ketawa!",
+        msg: "tadaaaa! kelinci kecilnya melompat keluar dari kotak kado khusus buat bikin cantiknyaaa akuuuuuuu ketawa hari iniii! semoga setiap langkah kamu di tempat PKL selalu dikelilingi hal-hal baik dan kejutan manis yang bikin hati kamu bahagia terusss sayangggggggg! 🎉🐰💖"
+      },
+      {
+        key: "sleepyMoon",
+        label: "Teman Bobo Nyenyak 🌙",
+        sub: "Nemenin istirahat malem!",
+        title: "Pengantar Tidur Nyenyak Abis PKL!",
+        msg: "kalau malem nanti kamu udah selesai bersih-bersih dan siap tidur abis capek PKL seharian, inget stiker beruang kecil di bulan sabit ini yaaa sayangggggggg! doa aku selalu nemenin tidur cantiknyaaa akuuuuuuu biar besok bangun dengan badan seger dan hati penuh senyummm! 🌙💤🤍"
+      }
+    ];
+
+    function renderStickerGallery() {
+      const grid = document.getElementById('stickerGallery');
+      grid.innerHTML = '';
+      animatedStickerShowcase.forEach(st => {
+        const card = document.createElement('div');
+        card.className = 'sticker-card';
+        card.innerHTML = `
+          <div>${getStickerHTML(st.key, 86)}</div>
+          <div class="sticker-card-label">${st.label}</div>
+          <div class="sticker-card-sub">${st.sub}</div>
+        `;
+        card.onclick = (e) => {
+          playSfx('win');
+          burstConfetti(e.clientX, e.clientY);
+          openModal("🐰 Stiker Animasi Spesial", st.title, st.msg, st.key);
+        };
+        grid.appendChild(card);
+      });
+    }
+    renderStickerGallery();
+
+    /* =========================================
+       6. TAB 3: CANTIK BANGET (KACA AJAIB & SCANNER)
+    ========================================= */
+    const mirrorQuotes = [
+      "kata kaca ajaib: mau lagi capek pulang PKL, lagi sibuk ngerjain tugas, atau baru bangun tidur sekalipun, puputtt tetep manusia paling cantik, paling gemesss, dan paling bikin aku jatuh cinta tiap hari seduniaaa! 💖✨",
+      "kaca ajaib sampe silauuu dan berkilau-kilau ngeliat pesona cantiknyaaa akuuuuuuu hari iniii! pantesan aku kangen terusss nggak berhenti-berhentiii! ✨😍🤍",
+      "peringatan darurat dari kaca ajaib: tingkat keimutan, kemanisan, dan kecantikan puputtt hari ini udah nembus batas galaksi Bima Saktiii! 🌌💗👑",
+      "kata kaca ajaib: senyum puputtt pas lagi seneng itu pemandangan paling indah dan paling ampuh buat ngilangin capek aku seharian penuhhh sayangggggggg! 🥺🌸",
+      "fakta mutlak kaca ajaib: dari miliaran orang di bumi ini, tetap cantiknyaaa akuuuuuuu yang paling mempesona dan paling berharga di hati aku selamanyaaa! 🤍💞"
+    ];
+    let mirrorIdx = 0;
+
+    function tapMirror(e) {
+      playSfx('pop');
+      mirrorIdx = (mirrorIdx + 1) % mirrorQuotes.length;
+      document.getElementById('mirrorText').textContent = mirrorQuotes[mirrorIdx];
+      const box = document.getElementById('magicMirror');
+      box.classList.remove('shake-anim');
+      void box.offsetWidth;
+      box.classList.add('shake-anim');
+      spawnFloatText(e.clientX, e.clientY, 'CANTIK BANGET! 💖');
+    }
+
+    const beautyCompliments = [
+      "sayangggggggg cantiknyaaa akuuuuuuu, jangan pernah sekalipun ngerasa kurang cantik atau insecure yaaa! di mata aku kamu tuh selalu bersinarrr bangettt, lucuuu bangettt, dan senyum kamu itu obat paling manjur tiap kali aku lagi kangen berat sama kamuuu 🥺💗✨",
+      "cantiknyaaa akuuuuuuu, tau nggak kenapa aku suka senyum-senyum sendiri tiap liat foto atau chat dari kamu? soalnya aura cantik sama manisnya kamu tuh nyampe banget ke hati aku walau kita lagi jauhannn pas kamu PKL! 🙈🤍🌸",
+      "sayangggggggg, mata kamu yang bening, pipi gemes kamu, sama senyum tulus kamu itu kombinasi paling sempurna yang pernah aku temuin! pokoknya hari ini dan selamanya kamu juara satu paling cantik di hati akuuu! 👑💖",
+      "cantiknyaaa akuuuuuuu yang paling rajin PKL, istirahat dan minum air putih yang cukup yaaa biar wajah cantik kamu tetep seger dan bahagia terus! aku selalu sayanggg sama kamu apa adanya kamuuu! 🌸💞"
+    ];
+    let compIdx = 0;
+
+    function nextCompliment() {
+      playSfx('tap');
+      compIdx = (compIdx + 1) % beautyCompliments.length;
+      document.getElementById('beautyComplimentText').textContent = beautyCompliments[compIdx];
+    }
+
+    function runBeautyScan() {
+      playSfx('pop');
+      const bar = document.getElementById('beautyBar');
+      const label = document.getElementById('beautyLabel');
+      label.textContent = 'Scanning kecantikan puputtt... ⏳';
+      bar.style.width = '32%';
+
+      setTimeout(() => {
+        bar.style.width = '78%';
+        label.textContent = 'Mendekati batas maksimal... 🚨';
+      }, 350);
+
+      setTimeout(() => {
+        playSfx('win');
+        burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
+        bar.style.width = '100%';
+        label.textContent = '💥 OVERLOAD 999.999.999% — KELEWAT CANTIK!';
+        const resBox = document.getElementById('beautyResult');
+        resBox.classList.remove('shake-anim');
+        void resBox.offsetWidth;
+        resBox.classList.add('shake-anim');
+      }, 800);
+    }
+
+    /* =========================================
+       7. TAB 4: TANGKAP CINTA & KOPI PKL
+    ========================================= */
+    const catchCanvas = document.getElementById('catchCanvas');
+    const cCtx = catchCanvas.getContext('2d');
+    let catchScore = 0;
+    let nextMilestone = 50;
+    let basketX = 140;
+    let moveDir = 0;
+    let fallingItems = [];
+    let spawnTimer = 0;
+
+    const catchMilestoneTexts = [
+      "yeayyyy 50 poinnn pertamaaa! sayangggggggg cantiknyaaa akuuuuuuu hebat banget nangkap semua cinta, kado lucu, dan kopi semangat PKL-nyaaa! terusin yaaa sayanggg, masih banyak hadiah long text manis di skor berikutnyaaa! ☕💖✨",
+      "tembusss 100 poinnn! wahhh lincah banget sih kesayangannn akuuu! sama kayak kamu yang cekatan banget di tempat PKL hari iniii. jangan lupa minum air putih dulu yaaa cantikkk, biar fokusnya tetep on teruss! 🌟🤍",
+      "150 poinnn tercapaiii! sayangggggggg, kalau cinta aku ke kamu bisa dijadiin skor kayak gini, angkanya nggak bakal pernah muat di layar HP kamu karena saking besarnyaaa aku sayang sama kamuuu! 🥺💗",
+      "200 poinnn luar biasaaa! cantiknyaaa akuuuuuuu emang juara di segala hal, baik di game ini maupun di dalam hati akuu! semangat terus PKL-nya yaaa sayanggg, aku selalu ada di barisan paling depan dukung kamuuu! 🏆✨",
+      "250+ poinnn MODE DEWI CANTIK! ampunnn deh kesayangan aku jago banget mainnyaaa! sebagai hadiahnya, nanti pas kita ketemu kamu boleh minta peluk paling lama dan jajan apa pun yang kamu mau yaaa sayangggggggg! 🤍🤗"
+    ];
+
+    function resizeCatchCanvas() {
+      const rect = catchCanvas.getBoundingClientRect();
+      if (rect.width > 0) {
+        catchCanvas.width = rect.width;
+        catchCanvas.height = 310;
+        basketX = catchCanvas.width / 2;
+      }
+    }
+
+    function resetCatchGame() {
+      playSfx('tap');
+      catchScore = 0;
+      nextMilestone = 50;
+      fallingItems = [];
+      document.getElementById('catchScore').textContent = '0';
+      document.getElementById('catchNextTarget').textContent = '50';
+    }
+
+    catchCanvas.addEventListener('pointermove', (e) => {
+      if (e.buttons > 0 || e.pointerType === 'touch') {
+        const rect = catchCanvas.getBoundingClientRect();
+        basketX = Math.max(26, Math.min(catchCanvas.width - 26, e.clientX - rect.left));
+      }
+    });
+
+    function updateCatchGame() {
+      const isCatchActive = document.getElementById('tab-catch').classList.contains('active');
+      if (isCatchActive && catchCanvas.width > 0) {
+        cCtx.clearRect(0, 0, catchCanvas.width, catchCanvas.height);
+
+        basketX += moveDir * 6.5;
+        basketX = Math.max(26, Math.min(catchCanvas.width - 26, basketX));
+
+        spawnTimer++;
+        if (spawnTimer > 34) {
+          spawnTimer = 0;
+          const pool = [
+            { emoji: '☕', pts: 20 },
+            { emoji: '🎁', pts: 25 },
+            { emoji: '💖', pts: 10 },
+            { emoji: '⭐', pts: 15 },
+            { emoji: '☁️', pts: -10 }
+          ];
+          const chosen = pool[Math.floor(Math.random() * pool.length)];
+          fallingItems.push({
+            x: Math.random() * (catchCanvas.width - 40) + 20,
+            y: -20,
+            vy: Math.random() * 1.8 + 2.3,
+            emoji: chosen.emoji,
+            pts: chosen.pts
+          });
+        }
+
+        cCtx.font = '26px sans-serif';
+        cCtx.textAlign = 'center';
+        for (let i = fallingItems.length - 1; i >= 0; i--) {
+          const it = fallingItems[i];
+          it.y += it.vy;
+          cCtx.fillText(it.emoji, it.x, it.y);
+
+          if (it.y > catchCanvas.height - 62 && it.y < catchCanvas.height - 18 && Math.abs(it.x - basketX) < 34) {
+            catchScore = Math.max(0, catchScore + it.pts);
+            document.getElementById('catchScore').textContent = catchScore;
+            if (it.pts > 0) {
+              playSfx('pop');
+            } else {
+              playSfx('bad');
+            }
+            fallingItems.splice(i, 1);
+
+            if (catchScore >= nextMilestone) {
+              const msgIdx = Math.min(catchMilestoneTexts.length - 1, Math.floor(nextMilestone / 50) - 1);
+              openModal(`🎉 Hadiah Skor ${nextMilestone} Poin!`, "Pesan Penyemangat Buat Cantiknya Aku", catchMilestoneTexts[msgIdx], "giftJump");
+              nextMilestone += 50;
+              document.getElementById('catchNextTarget').textContent = nextMilestone;
+            }
+            continue;
+          }
+
+          if (it.y > catchCanvas.height + 25) {
+            fallingItems.splice(i, 1);
+          }
+        }
+
+        cCtx.font = '38px sans-serif';
+        cCtx.fillText('🐰', basketX, catchCanvas.height - 20);
+        cCtx.font = '20px sans-serif';
+        cCtx.fillText('🧺', basketX, catchCanvas.height - 8);
+      }
+      requestAnimationFrame(updateCatchGame);
+    }
+    updateCatchGame();
+
+    /* =========================================
+       8. TAB 5: KIRIM PELUK (HUG METER)
+    ========================================= */
+    let hugPercent = 0;
+
+    function sendHug(e) {
+      playSfx('pop');
+      hugPercent += 8;
+      const btn = document.getElementById('hugStickerBtn');
+      btn.classList.remove('squish');
+      void btn.offsetWidth;
+      btn.classList.add('squish');
+
+      const words = ['Peluk kenceng! 🤗', 'Sayanggg puput! 🤍', 'Semangat PKL! ✨', 'Cantiknya aku! 💖', 'Muachhh! 🥺'];
+      spawnFloatText(e.clientX, e.clientY, words[Math.floor(Math.random() * words.length)]);
+
+      const barWidth = Math.min(100, hugPercent);
+      document.getElementById('hugFill').style.width = barWidth + '%';
+
+      const pctLabel = document.getElementById('hugPercent');
+      const msgBox = document.getElementById('hugMessage');
+
+      if (hugPercent < 25) {
+        pctLabel.textContent = `Energi Peluk: ${hugPercent}% (Baru Pemanasan 🥺)`;
+        msgBox.innerHTML = `<div class="chat-tag">🫂 Tahap 1: Pelukan Hangat</div><div>nahhh gitu dong sayangggggggg, pelan-pelan energi peluknya mulai masuk nihhh! pencet teruss yaaa cantiknyaaa akuuuuuuu biar capek PKL hari ini langsung luntur semuanya! 🤍✨</div>`;
+      } else if (hugPercent < 50) {
+        pctLabel.textContent = `Energi Peluk: ${hugPercent}% (Makin Hangat 🤗)`;
+        msgBox.innerHTML = `<div class="chat-tag">🫂 Tahap 2: Usap-Usap Kepala</div><div>udah hampir setengah jalan sayangggggggg! rasain deh pelukan hangat dari jauh ini, aku usap-usap kepalanya biar semua pusing dan lelah di tempat PKL langsung hilanggg yaaa cantiknyaaa akuuuuuuu! 🥺✨</div>`;
+      } else if (hugPercent < 75) {
+        pctLabel.textContent = `Energi Peluk: ${hugPercent}% (Sayang Banget 💖)`;
+        msgBox.innerHTML = `<div class="chat-tag">🫂 Tahap 3: Peluk Erat Rindu</div><div>wahhh udah lewat 50% nihhh! cantiknyaaa akuuuuuuu pasti sekarang udah mulai senyum-senyum sendiri kan? ayooo pencet lagi sampe penuh biar stok bahagia kamu awet sampe besok pagiii! 🙈💗</div>`;
+      } else if (hugPercent < 100) {
+        pctLabel.textContent = `Energi Peluk: ${hugPercent}% (Dikit Lagi Penuh! ✨)`;
+        msgBox.innerHTML = `<div class="chat-tag">🫂 Tahap 4: Dikit Lagi Penuh</div><div>dikittt lagiii 100% sayangggggggg! pokoknya hari ini kamu udah jadi anak PKL paling hebat, paling kuat, dan paling disayang sama akuu. satu dorongan peluk kenceng lagi yuuu! 🔥🤍</div>`;
+      } else if (hugPercent < 150) {
+        pctLabel.textContent = `Energi Peluk: ${hugPercent}% (100% PENUH! 🎉)`;
+        msgBox.innerHTML = `<div class="chat-tag">🎉 Peluk Virtual 100% Terkirim!</div><div>YEAYYYY PELUK VIRTUAL 100% TERKIRIM SEMPURNAAA! selamat yaaa sayangggggggg cantiknyaaa akuuuuuuu, baterai cinta dan semangat kamu sekarang udah full tank lagiii! i love you so muchhh! 🎉🤗🤍</div>`;
+      } else {
+        pctLabel.textContent = `Energi Peluk: ${hugPercent}% (MODE SAYANG TANPA BATAS ∞%)`;
+        msgBox.innerHTML = `<div class="chat-tag">👑 Mode Sayang Tanpa Batas ∞%</div><div>AMPUNNN DEHHH UDAH TEMBUS MODE SAYANG TANPA BATAS ∞%! saking sayangnya aku sama kamuuu, meterannya sampe jebol karena rasa cinta aku ke puputtt emang nggak pernah ada batasnyaaa selamanyaaa! 💗👑✨</div>`;
+      }
+    }
+
+    /* =========================================
+       9. TAB 6: COCOK KARTU (MEMORY MATCH)
+    ========================================= */
+    const memoryItems = [
+      {
+        icon: "💼",
+        sticker: "coffeeCheer",
+        title: "Pasangan Si Paling Rajin PKL!",
+        text: "sayangggggggg cantiknyaaa akuuuuuuu, ikon tas kerja ini ngingetin aku betapa hebat dan rajinnya kamu ngejalanin PKL tiap hari! walau kadang capek dan ngantuk, kamu tetep tanggung jawab dan keren banget. aku bangga punya kamuuu! 💼🤍"
+      },
+      {
+        icon: "☕",
+        sticker: "coffeeCheer",
+        title: "Pasangan Kopi & Istirahat Manis!",
+        text: "ketemu pasangan kopinya nihhh! sayangggggggg jangan lupa istirahat dan minum yang seger-seger di sela PKL yaaa, jangan sampe kecapean atau telat makan. kesehatan cantiknyaaa akuuuuuuu itu nomor satu buat akuuu! ☕🥺"
+      },
+      {
+        icon: "💖",
+        sticker: "bunnyLove",
+        title: "Pasangan Hati yang Selalu Milih Kamu!",
+        text: "hati ini cuma punya satu nama di dalamnya, yaitu puputtt kesayangannn akuuu! mau sejauh apa pun jarak kita pas lagi PKL, rasa sayang dan setia aku nggak bakal pernah berkurang sedikit punnn sayangggggggg! 💖✨"
+      },
+      {
+        icon: "🌟",
+        sticker: "crownQueen",
+        title: "Pasangan Bintang Paling Bersinar!",
+        text: "cantiknyaaa akuuuuuuu, kamu tuh ibarat bintang paling terang di langit malam akuu! kehadiran kamu selalu ngasih semangat baru dan bikin hari-hari aku jauh lebih berwarna dan berarti bangettt! 🌟🤍"
+      },
+      {
+        icon: "🐰",
+        sticker: "shyBlush",
+        title: "Pasangan Kelinci Gemes Kesayangan!",
+        text: "gemesss bangettt ketemu kelinci lucunyaaa! persis kayak tingkah lucu dan ekspresi gemes kamu tiap kali lagi manja atau cerita panjang lebar ke aku. bikin aku makin kangen pengen cepet ketemu kamuuu sayangggggggg! 🐰💕"
+      },
+      {
+        icon: "🎁",
+        sticker: "giftJump",
+        title: "Pasangan Kado Kejutan Buat Kamu!",
+        text: "selamat dapet pasangan kado manisss! semoga hari-hari PKL kamu ke depannya selalu penuh kejutan baik, rezeki lancar, dan senyum cantiknyaaa akuuuuuuu yang nggak pernah luntur! 🎁🙈"
+      }
+    ];
+
+    let flippedCards = [];
+    let matchedCount = 0;
+    let lockBoard = false;
+
+    function initMemoryGame() {
+      const grid = document.getElementById('memoryGrid');
+      grid.innerHTML = '';
+      flippedCards = [];
+      matchedCount = 0;
+      lockBoard = false;
+      document.getElementById('memPairs').textContent = '0 / 6';
+
+      const deck = [...memoryItems, ...memoryItems]
+        .map((item, idx) => ({ ...item, uid: idx }))
+        .sort(() => Math.random() - 0.5);
+
+      deck.forEach(cardData => {
+        const el = document.createElement('div');
+        el.className = 'mem-card';
+        el.dataset.icon = cardData.icon;
+        el.innerHTML = `<span>${cardData.icon}</span>`;
+        el.onclick = () => flipMemCard(el, cardData);
+        grid.appendChild(el);
+      });
+    }
+
+    function flipMemCard(el, cardData) {
+      if (lockBoard || el.classList.contains('flipped') || el.classList.contains('matched')) return;
+      playSfx('tap');
+      el.classList.add('flipped');
+      flippedCards.push({ el, cardData });
+
+      if (flippedCards.length === 2) {
+        lockBoard = true;
+        const [first, second] = flippedCards;
+        if (first.cardData.icon === second.cardData.icon) {
+          first.el.classList.add('matched');
+          second.el.classList.add('matched');
+          matchedCount++;
+          document.getElementById('memPairs').textContent = `${matchedCount} / 6`;
+          flippedCards = [];
+          lockBoard = false;
+
+          if (matchedCount === 6) {
+            playSfx('win');
+            burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
+            openModal(
+              "🏆 Semua 6 Pasangan Terbuka!",
+              "Cantiknya Aku Hebat Bangettt!",
+              "yeayyyy selamat sayangggggggg cantiknyaaa akuuuuuuu berhasil nyocokin semua kartunya dengan sempurna! sama kayak kita berdua yang selalu cocok dan saling ngelengkapin satu sama lain. makasih udah main dengan penuh senyum hari ini yaaa, i love you endlesslyyyy! 🤍🎉✨",
+              "mochiHug"
+            );
+          } else {
+            openModal(
+              `✨ Pasangan ${cardData.icon} Cocok!`,
+              cardData.title,
+              cardData.text,
+              cardData.sticker
+            );
+          }
+        } else {
+          setTimeout(() => {
+            first.el.classList.remove('flipped');
+            second.el.classList.remove('flipped');
+            flippedCards = [];
+            lockBoard = false;
+          }, 750);
+        }
+      }
+    }
+    initMemoryGame();
+
+    /* =========================================
+       10. TAB 7: TEBAK FOTO PUPUT (3 LEVEL .JPG)
+    ========================================= */
+    const photoLevels = [
+      {
+        src: "foto1.jpg",
+        altSrc: "foto1.jpeg",
+        sticker: "shyBlush",
+        title: "Si Paling Gemes Topang Dagu 🥰",
+        clues: [
+          "Kotak 1: di atas kepala ada pita merah-kuning lucuuu bangettt...",
+          "Kotak 2: rambut hitam terurai lembut bikin cantiknyaaa akuuuuuuu makin manis...",
+          "Kotak 3: pose andalan topang dagu yang selalu bikin hati aku meleleh...",
+          "Kotak 4: mata sipit senyum tipis penuh kebahagiaan...",
+          "Kotak 5: pipi gemes yang selalu bikin aku kangen berat tiap hari...",
+          "Kotak 6: senyum manis kesayangannn akuuu yang nggak ada obat...",
+          "Kotak 7: tangan mungilnya lagi nyangga pipi dengan santai...",
+          "Kotak 8: baju biru gelap motif bunga-bunga kecil yang adem banget...",
+          "Kotak 9: ini dia foto kesayangan aku yang selalu bikin senyum sendiri!"
+        ],
+        finalMsg: "nahhh ketebakkk kan! ini foto si paling gemesss topang daguuu 🥰 sayangggggggg, tiap kali aku liat foto kamu yang ini, bawaannya pengen nyubit pipi kamu pelan-pelan saking lucunyaaa! mau ekspresi kayak gimana pun, cantiknyaaa akuuuuuuu tetep juara satu di hati akuuu! 🤍✨"
+      },
+      {
+        src: "foto2.jpg",
+        altSrc: "foto2.jpeg",
+        sticker: "mochiHug",
+        title: "Mode Cemberut Imut 🥺🖤",
+        clues: [
+          "Kotak 1: poni tipis jatuh manis di dahi cantiknyaaa akuuuuuuu...",
+          "Kotak 2: tatapan mata bulat bening yang dalem banget...",
+          "Kotak 3: rambut gelapnya bingkai wajah imut kamu...",
+          "Kotak 4: pipi merona lembut bikin kelihatan kayak boneka...",
+          "Kotak 5: ekspresi bibir manyun cemberut manja yang gemesin banget...",
+          "Kotak 6: tatapan manja yang minta diperhatiin dan disayang terus...",
+          "Kotak 7: pake jaket hitam beresleting yang keren banget...",
+          "Kotak 8: gaya close-up imut yang bikin siapa pun langsung luluh...",
+          "Kotak 9: mode manyun aja cantiknya kelewatan gini yaaampunnn!"
+        ],
+        finalMsg: "yaaampunnn ini dia mode cemberut imutnya cantiknyaaa akuuuuuuu 🥺🖤 jujur aja deh sayangggggggg, kalau kamu lagi ngambek atau manyun kayak gini di depan aku, bukannya takut malah pengen langsung aku peluk dan bujukin pake jajan kesukaan kamuuu! gemes bangettt sih kesayangannn akuuu! 🙈💖"
+      },
+      {
+        src: "foto3.jpg",
+        altSrc: "foto3.jpeg",
+        sticker: "cameraSparkle",
+        title: "Dengerin Lagu Bareng Kucing Oren 🐱🎧",
+        clues: [
+          "Kotak 1: sebelah kiri ada latar biru cerah yang estetik banget...",
+          "Kotak 2: ada majikan kucing oren dengan mata bulat gede banget...",
+          "Kotak 3: di sebelah kanan ada cantiknyaaa akuuuuuuu lagi berpose...",
+          "Kotak 4: kucing orennya ikutan pake earphone putih gambar tangan...",
+          "Kotak 5: kabel earphone putihnya nyambung dari kucing ke telinga kamu...",
+          "Kotak 6: ekspresi wink satu mata sambil melet gemes bangettt...",
+          "Kotak 7: baju motif bunga biru gelap yang adem banget dilihat...",
+          "Kotak 8: tangan kamu kasih pose 🤙 super santai dan asik...",
+          "Kotak 9: kolase paling kreatif dan paling gemesin seduniaaa!"
+        ],
+        finalMsg: "ahahaha ini salah satu foto favorit akuuu, dengerin lagu bareng si kucing oren 🐱🎧 sayangggggggg, kreativitas sama keimutan kamu di foto ini tuh nggak ada lawan! semoga hari-hari PKL kamu selalu seceria dan se-asik ekspresi kamu di foto ini yaaa cantiknyaaa akuuuuuuu! 🤍🎶✨"
+      }
+    ];
+
+    let currentPhotoIdx = 0;
+    let revealedCount = 0;
+
+    const fallbackSvg = "data:image/svg+xml;utf8," + encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="300" height="400" viewBox="0 0 300 400">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#3a2863"/>
+            <stop offset="100%" stop-color="#ff85b3"/>
+          </linearGradient>
+        </defs>
+        <rect width="300" height="400" fill="url(#g)"/>
+        <text x="150" y="165" font-size="64" text-anchor="middle">🐰🤍</text>
+        <text x="150" y="220" font-size="18" fill="#ffffff" font-family="sans-serif" font-weight="bold" text-anchor="middle">Foto Cantiknya Aku</text>
+        <text x="150" y="248" font-size="12" fill="#ffe3ef" font-family="sans-serif" text-anchor="middle">(Pastikan foto1/2/3.jpg sejajar</text>
+        <text x="150" y="266" font-size="12" fill="#ffe3ef" font-family="sans-serif" text-anchor="middle">dengan index.html)</text>
+      </svg>
+    `);
+
+    function loadPhotoLevel(idx) {
+      playSfx('tap');
+      currentPhotoIdx = idx;
+      revealedCount = 0;
+
+      document.querySelectorAll('.lvl-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+      });
+
+      const level = photoLevels[idx];
+      const img = document.getElementById('secretPhoto');
+      img.onerror = () => {
+        img.onerror = () => { img.src = fallbackSvg; };
+        img.src = level.altSrc;
+      };
+      img.src = level.src;
+
+      document.getElementById('photoClueBox').innerHTML =
+        `💡 <b>Petunjuk:</b> ketuk kotak angka 1–9 di atas buat nebak foto <b>${level.title}</b> yaaa sayangggggggg! ✨`;
+
+      const overlay = document.getElementById('tilesOverlay');
+      overlay.innerHTML = '';
+
+      for (let i = 0; i < 9; i++) {
+        const tile = document.createElement('div');
+        tile.className = 'tile-piece';
+        tile.textContent = i + 1;
+        tile.onclick = () => {
+          if (tile.classList.contains('revealed')) return;
+          playSfx('pop');
+          tile.classList.add('revealed');
+          revealedCount++;
+          document.getElementById('photoClueBox').innerHTML = `💡 ${level.clues[i]}`;
+
+          if (revealedCount === 9) {
+            playSfx('win');
+            burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
+            openModal("📸 Foto Terbuka Sempurna!", level.title, level.finalMsg, level.sticker);
+          }
+        };
+        overlay.appendChild(tile);
+      }
+    }
+
+    function revealAllTiles() {
+      playSfx('win');
+      burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
+      document.querySelectorAll('.tile-piece').forEach(t => t.classList.add('revealed'));
+      revealedCount = 9;
+      const level = photoLevels[currentPhotoIdx];
+      openModal("📸 Foto Terbuka Sempurna!", level.title, level.finalMsg, level.sticker);
+    }
+
+    function loadLocalPhoto(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        const img = document.getElementById('secretPhoto');
+        img.onerror = null;
+        img.src = ev.target.result;
+        document.querySelectorAll('.tile-piece').forEach(t => t.classList.remove('revealed'));
+        revealedCount = 0;
+        document.getElementById('photoClueBox').innerHTML =
+          `💡 <b>Foto dari Galeri Berhasil Dimuat!</b> Ketuk kotak 1–9 buat buka fotonya pelan-pelan yaaa sayangggggggg ✨`;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    loadPhotoLevel(0);
+  </script>
+</body>
+</html>
